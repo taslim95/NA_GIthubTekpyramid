@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "51279938-5afb-4480-ad7e-f9c5b76d6a01",
+		"name": "Repo_using_variable",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createrepo",
+			"id": "1834ea61-82fe-4ac2-8713-bf706c3208a8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"name\":\"suhas\",                               \r\n  \"description\" : \"API testing demo repo\" ,    \r\n   \"private\" :true                                \r\n }                            ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Base_URL}}/user/repos"
+			},
+			"response": []
+		},
+		{
+			"name": "createrepo Copy",
+			"id": "ecfc78b1-f835-496c-a857-1858111ff91f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"name\":\"Shiny\",                               \r\n  \"description\" : \"API testing demo repo\" ,    \r\n   \"private\" :true                                \r\n   \r\n    }                             ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Base_URL}}/repos/{{owner}}/Noushad"
+			},
+			"response": []
+		},
+		{
+			"name": "createrepo",
+			"id": "38f291a2-85b0-46a1-b3e6-1ac3c3052f4d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Base_URL}}/repos/{{owner}}/Noushad"
+			},
+			"response": []
+		},
+		{
+			"name": "delete_Repository",
+			"id": "588e932e-590d-4072-b8a4-29a82aa7f5da",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Base_URL}}/repos/{{owner}}/Noushad"
+			},
+			"response": []
+		}
+	]
+}
