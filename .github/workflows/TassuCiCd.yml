@@ -1,0 +1,39 @@
+name: Java Selenium CI
+
+on:
+  push:
+    branches: [ "master" ]   # Run when pushing to main branch
+  pull_request:
+    branches: [ "master" ]   # Run on PRs to main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Java (choose version based on your project, 11/17 are common)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # Step 3: Cache Maven dependencies for faster builds
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      # Step 4: Build project
+      - name: Build with Maven
+        run: mvn clean install -DskipTests
+
+      # Step 5: Run Selenium tests
+      - name: Run Tests
+        run: mvn test
